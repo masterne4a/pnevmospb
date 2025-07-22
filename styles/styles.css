@@ -42,7 +42,7 @@
 
 .header__address {
   align-self: center;
-  justify-self: end;
+  text-align: end;
 }
 
 .main {
@@ -86,12 +86,13 @@ section {
   border-radius: 5px;
   color: #fff;
   border: none;
+  inline-size: 180px;
 }
 
 .services {
   display: grid;
   gap: 20px;
-  padding: 0 2rem;
+  padding: 0 1rem;
   margin-bottom: 3rem;
 }
 
@@ -101,20 +102,28 @@ section {
 }
 
 .services__card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   background-color: var(--color-background);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: start;
 }
 
 .services__card-image {
   width: 100px;
   aspect-ratio: 1 / 1;
+  align-self: center;
 }
 
 .services__card-title {
 color: var(--color-accent);
+}
+
+.text-acent {
+  font-weight: bold;
 }
 
 .services__card_about-list {
@@ -123,6 +132,7 @@ color: var(--color-accent);
   flex-direction: column;
   text-align: start;
   flex-wrap: wrap;
+  padding-inline-start: 1rem;
 }
 
 .about {
@@ -133,6 +143,7 @@ color: var(--color-accent);
 
 .about__title {
   font-weight: 700;
+  text-align: center;
 }
 
 .about__list-item {
@@ -144,7 +155,7 @@ color: var(--color-accent);
   content: "";
   position: absolute;
   left: 0;
-  top: 5px;
+  top: 8px;
   width: 10px;
   height: 5px;
   border-left: 2px solid #28a745;
@@ -157,6 +168,26 @@ color: var(--color-accent);
   font-size: 20px;
   text-align: center;
 }
+
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer__title { 
+  color: var(--color-accent);
+}
+
+.footer__address_link {
+  text-decoration: none;
+}
+
+
 
 /*.page {
   display: block;
