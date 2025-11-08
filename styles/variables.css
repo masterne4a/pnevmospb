@@ -1,15 +1,19 @@
 :root {
-  --font-family: "Montserrat", sans-serif;
+  --font-family: "Montserrat";
   --font-size: 14px;
-  --font-width: 400;
+  --font-size-desctop: 16px;
+  --font-weight: 400;
   --cover-image-place: url(../images/back-ground.jpg);
-  --background-color: #cdcdcd;
+  --background-color: #222;
   /*из шаблона*/
-    --color-primary: #000000;
-    --color-secondary: #ffffff;
-    --color-text: #000000;
-    --color-background: #ffffff;
-    --color-border: #e5e5e5;
-    --color-accent: #007acc;
-    --color-accent-dark: #005c99;
+  --color-primary: #000000;
+  --color-secondary: #ffffff;
+  --color-text: #fff;
+  --color-background: #222;
+  --color-border: #e5e5e55c;
+  --color-accent: #d96e1a;
+  --color-accent-dark: #d96e1a;
+
+  --hero-title-size: clamp(1.3125rem, -0.0959rem + 6.0092vw, 3.75rem);
+  --hero-title-text-size: clamp(0.875rem, 0.5139rem + 1.5408vw, 1.5rem);
 }

@@ -1,0 +1,15 @@
+:root {
+  --font-family: "Montserrat";
+  --font-size: 14px;
+  --font-weight: 400;
+  --cover-image-place: url(../images/back-ground.jpg);
+  --background-color: #222;
+  /*из шаблона*/
+    --color-primary: #000000;
+    --color-secondary: #ffffff;
+    --color-text: #fff;
+    --color-background: #222;
+    --color-border: #e5e5e55c;
+    --color-accent: #d96e1a;
+    --color-accent-dark: #d96e1a;
+}

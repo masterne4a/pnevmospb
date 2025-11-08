@@ -1,15 +1,20 @@
 .page {
-  display: block;
-  font-family: var(--font-family), sans-serif;
-  line-height: 1.6;
-  color: var(--color-text);
   position: relative;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  color: var(--color-text);
+  font-family: var(--font-family), sans-serif;
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: 1.6;
   background-image: var(--cover-image-place);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  z-index: 0;
 }
 
 .overlay {
@@ -20,10 +25,12 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.703);
 }
 
-.header, .main, .footer {
+.header,
+.main,
+.footer {
   position: relative;
   z-index: 2;
 }
@@ -31,26 +38,43 @@
 .header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background-color: var(--color-background);
   border-bottom: 1px solid var(--color-border);
-  padding: 1rem;
-  
+  padding: 1rem 1.5rem;
+  background-color: var(--color-background);
 }
 
 .hedare__logo-link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none;
   font-size: 12px;
-  
+  text-decoration: none;
 }
 
 .header__logo {
+  position: relative;
+  z-index: 2;
   width: 45px;
-  aspect-ratio: 45 / 45;
   object-fit: cover;
   object-position: center;
+  aspect-ratio: 45 / 45;
+}
+
+.header__logo-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.header__logo-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -3px;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
 }
 
 .header__brand-name {
@@ -71,7 +95,6 @@
   padding: 0 1rem 3rem 1rem;
 }
 
-
 section {
   position: relative;
   z-index: 2;
@@ -85,46 +108,82 @@ section {
   text-align: center;
 }
 
+.hero__title {
+  font-size: var(--hero-title-size);
+}
+
+.hero__title-text {
+  font-size: var(--hero-title-text-size);
+}
+
+.hero__button_section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-self: center;
+}
+
 .hero__button {
   margin: auto;
-  background-color: var(--color-accent);
-  border-radius: 5px;
-  color: #fff;
   border: none;
-  inline-size: 180px;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  background-color: var(--color-accent);
+  transition: color 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  inline-size: 220px;
+}
+
+.avito_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.avito_logo svg {
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));
+  /* горизонтальное смещение, вертикальное, размытие, цвет */
+}
+
+.hero__button:hover {
+  outline: 1px solid var(--color-accent);
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
 }
 
 .services {
   display: grid;
   gap: 20px;
-  padding: 0 1rem;
   margin-bottom: 3rem;
+  padding: 0 1rem;
 }
 
 .services__title {
-  text-align: center;
   padding-bottom: 1rem;
+  text-align: center;
 }
 
 .services__card {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: var(--color-background);
-  padding: 1rem;
   border-radius: 10px;
+  padding: 1rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: start;
+  background-color: var(--color-background);
 }
 
 .services__card-image {
+  align-self: center;
   width: 100px;
   aspect-ratio: 1 / 1;
-  align-self: center;
 }
 
 .services__card-title {
-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .text-acent {
@@ -132,12 +191,12 @@ color: var(--color-accent);
 }
 
 .services__card_about-list {
-  list-style-type: circle;
   display: flex;
   flex-direction: column;
-  text-align: start;
   flex-wrap: wrap;
   padding-inline-start: 1rem;
+  text-align: start;
+  list-style-type: circle;
 }
 
 .about {
@@ -147,7 +206,6 @@ color: var(--color-accent);
 }
 
 .about__title {
-  font-weight: 700;
   text-align: center;
 }
 
@@ -159,12 +217,12 @@ color: var(--color-accent);
 .about__list-item::before {
   content: "";
   position: absolute;
-  left: 0;
   top: 8px;
+  left: 0;
   width: 10px;
   height: 5px;
-  border-left: 2px solid #28a745;
   border-bottom: 2px solid #28a745;
+  border-left: 2px solid #28a745;
   transform: rotate(-45deg);
 }
 
@@ -175,91 +233,158 @@ color: var(--color-accent);
 }
 
 .footer {
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
-  padding: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  padding: 2rem;
+  color: var(--color-secondary);
   text-align: center;
+  background-color: var(--color-primary);
 }
 
-.footer__title { 
+.footer__title {
   color: var(--color-accent);
 }
 
-.footer__address_link {
+.address_link {
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.address_link:hover {
+  color: var(--color-accent);
   text-decoration: none;
 }
 
-
-
-/*.page {
-  display: block;
-  position: relative;
-  padding: 15px;
-  background-color: var(--background-color);
-  background-image: var(--cover-image-place);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+.address_link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+.iframe__map {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  inline-size: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.map {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  margin: auto;
 }
 
-header, main, footer {
-  position: relative;
-  z-index: 2;
+@media (min-width: 768px) {
+  .hedare__logo-link {
+    display: grid;
+    grid-template-columns: 5rem auto;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .header__logo-wrapper {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-self: center;
+  }
+
+  .header__brand-name {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+    justify-self: start;
+  }
+
+  .header__brand-description {
+    grid-column: 1 / -1;
+    grid-row: 2 / -1;
+    align-self: self-start;
+    text-align: start;
+    text-wrap: nowrap;
+  }
+
+  .header__address {
+    padding-inline-end: 1rem;
+  }
+
+  .services__card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 3fr;
+  }
+
+  .services__card-title {
+    align-self: center;
+  }
+
+  .card_about-list-title,
+  .about-list_has-title {
+    grid-column: -1 / -2;
+    grid-row: -1 / -2;
+  }
+
+  .about-list_has-title {
+    padding-top: 2rem;
+  }
+
+  .iframe__map {
+    inline-size: 80%;
+    aspect-ratio: 5 / 3;
+  }
 }
 
-.header {
-  display: grid;
-  height: 40vh;
-}
+@media (min-width: 1024px) {
+  .page {
+    font-size: var(--font-size-desctop);
+  }
 
-.hedare__logo-link {
-  text-decoration: none;
-}
+  .hedare__logo-link {
+    padding-inline-start: 5rem;
+  }
 
-.header__logo, .header__brand-name, .header__brand-description {
-  display: block;
-  justify-self: center;
-}
+  .hero {
+    gap: 30px;
+  }
 
-.header__brand-name {
-  text-decoration: 1px underline currentColor;
-  text-underline-offset: 6px;
-}
+  .header__address {
+    padding-inline-end: 3rem;
+  }
 
-.header__brand-description {
-  line-height: 1.5;
-}
+  .hero__button_section {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-self: center;
+  }
 
-.header__address {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 0.8;
-  font-weight: 700;
-}
+  .hero__button {
+    padding: 20px;
+    max-inline-size: 350px;
+    inline-size: 325px;
+  }
 
-.cover {
-  display: block;
-  padding-block-end: 30px;
-}
+  .avito_button {
+    padding-block: 12px;
+  }
 
-.cover__card-list {
-  display: grid;
-  gap: 20px;
+  .services {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services__title {
+    grid-column: 1 / -1;
+  }
+
+  .services__card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .about-list_has-title {
+    padding: 0;
+  }
+
+  .about {
+    padding-inline: 5rem;
+  }
 }
-  */
